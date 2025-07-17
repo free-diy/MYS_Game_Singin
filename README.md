@@ -35,7 +35,6 @@
    - 按下回车键，此时 Cookie 已经复制到你的剪贴板，原神崩铁Cookie通用。
 
 
-
 ## GitHub Actions 部署
 
 你可以通过 GitHub Actions 定期自动运行签到任务。以下是配置步骤：
