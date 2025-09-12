@@ -37,7 +37,7 @@
 
 ## GitHub Actions 部署
 
-你可以通过 GitHub Actions 定期自动运行签到任务。以下是配置步骤：
+你可以通过 GitHub Actions 定期自动运行签到任务,以下是配置步骤：
 
 1. **Fork本仓库**
 
