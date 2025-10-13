@@ -67,13 +67,8 @@ const getCookieConfig = async () => {
     console.error("Missing required environment variables.");
     return { Genshin: [], StarRail: [] }
   }
-  try {
-    const genshinCookieArr = MYSCookies ? MYSCookies.split(',') : []
-    return { Genshin: genshinCookieArr, StarRail: genshinCookieArr }
-  } catch (error) {
-    console.error("Failed to parse environment variable data as JSON:", error.message);
-    return { Genshin: [], StarRail: [] }
-  }
+  const MYSCookieArr = MYSCookies ? MYSCookies.split(',') : []
+  return { Genshin: MYSCookieArr, StarRail: MYSCookieArr }
 }
 
 const randomSleep = (min, max) => {
@@ -102,12 +97,10 @@ const getRole = async (cookie, gameKey) => {
     headers,
     url: `https://${WEB_HOST}/binding/api/getUserGameRolesByCookie?game_biz=${GAME_BIZ[gameKey]}`
   }).catch(err => {
-    console.error('Login error\n' + err);
-    return 0;
-  });
+    console.error('Login error\n' + err)
+  })
   if (res.data['retcode'] !== 0) {
-    console.info('Account not logged in, please check cookie', JSON.stringify(res.data));
-    return 0;
+    console.info('Account not logged in, please check cookie', JSON.stringify(res.data))
   }
   if ((res?.data?.message === 'OK') && res.data.data.list[0]) {
     ROLE[gameKey] = res.data.data.list[0]

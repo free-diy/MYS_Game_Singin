@@ -14,14 +14,9 @@ const getTokenConfig = async () => {
     console.error("Missing required environment variables.");
     return { CloudYS: [], CloudSR: [] }
   }
-  try {
-    const genshinTokenArr = genshinTokens ? genshinTokens.split(',') : []
-    const StarRailTokenArr = StarRailTokens ? StarRailTokens.split(',') : []
-    return { CloudYS: genshinTokenArr, CloudSR: StarRailTokenArr }
-  } catch (error) {
-    console.error("Failed to parse environment variable data as JSON:", error.message);
-    return { CloudYS: [], CloudSR: [] }
-  }
+  const genshinTokenArr = genshinTokens ? genshinTokens.split(',') : []
+  const StarRailTokenArr = StarRailTokens ? StarRailTokens.split(',') : []
+  return { CloudYS: genshinTokenArr, CloudSR: StarRailTokenArr }
 }
 
 const commonHeaders = {
